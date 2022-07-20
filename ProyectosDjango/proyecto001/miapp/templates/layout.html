@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8"/>
+        <title>
+            {% block title %}
+
+            {% endblock %}
+            | Emily Gomez
+        </title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{%static 'css/style.css' %}"/>
+    </head>
+    <body>
+        <header>
+            <div id="logotipo">
+                <img src="{% static 'images/logoDJango.png' %}"/>
+                <h1>Proyecto Web (LP3)</h1>
+            </div> 
+        </header>
+        
+        <nav>
+            <ul>
+            <li>
+                <a href= "{% url 'inicio' %}"> Inicio </a>
+            </li>
+            <li>
+                <a href= "{% url 'saludo' %}"> Mensaje de saludo </a>
+            </li>
+            <li>
+                <a href= "{% url 'rango' %}"> Mostrar Número [10,20]</a>
+            </li>
+            <li>
+                <a href= "/rango2/15/23"> Mostrar Número [15,23]</a>
+            </li>
+            </ul>
+        </nav>  
+        <div class="barra">
+            <span class = "esquina-izquierda"></span>
+            <span class = "relleno-barra"></span>
+            <span class = "esquina-derecha"></span>    
+        </div>
+        
+        <hr> 
+        <div id="content">
+            <div class="box">
+                {% block content %}
+                    <strong> Contenido en layout (Padre)</strong>
+                {% endblock  %}
+            </div>
+            
+        </div>
+        <footer>
+            UNTELS - Lenguaje de Programación III &COPY; Emily Gomez - {% now "d/m/Y h:m:s" %}
+        </footer>
+    </body>
+
+</html>

@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Inicio
+{% endblock %}
+
+{% block content %}
+    <!--Comentario en HTML-->
+    {% comment 'Datos de la página index' %}
+    En esta página se mostrará la bienvenida al sistema
+    {% endcomment %}
+    <h1 class="title">Página Index</h1>
+    <h2>Usando templates</h2>
+    {% if mensaje %}
+        <P>Mensaje:{{mensaje}}</P>
+        {% else %}
+        <strong>El mensaje no tiene contenido</strong>
+    {% endif %}
+
+    {% include 'lista_estudiantes_reg.html' with encabezado="Estudiantes Registrados" %}
+    {% include 'filtros.html' with encabezado="Uso de filtros.html" %}
+    <P>Año:2022</P>
+{% endblock %}
